@@ -1,0 +1,57 @@
+{
+  "id": "intro-to-semiconductors",
+  "title": "Intro to Semiconductors",
+  "steps": [
+    {
+      "id": "step-1",
+      "type": "text",
+      "body": "A semiconductor, like silicon, has electrical conductivity between that of a conductor (like copper) and an insulator (like glass). That middle ground is what makes it useful: we can control its conductivity precisely by adding impurities, a process called doping."
+    },
+    {
+      "id": "step-2",
+      "type": "multiple-choice",
+      "prompt": "What is 'doping' in the context of semiconductors?",
+      "choices": [
+        { "id": "a", "text": "Heating silicon until it melts" },
+        { "id": "b", "text": "Adding small amounts of other elements to change conductivity" },
+        { "id": "c", "text": "Coating the surface with metal" }
+      ],
+      "correctChoiceId": "b",
+      "feedback": {
+        "correct": "Exactly — doping introduces atoms with one more or one fewer valence electron than silicon, creating extra charge carriers.",
+        "incorrectByChoice": {
+          "a": "Melting is part of crystal growth (like the Czochralski process), but that's not what doping means.",
+          "c": "Metal coating is used for contacts/wiring, not for changing the semiconductor's own conductivity."
+        },
+        "incorrectDefault": "Not quite — doping is about changing the material's composition, not its shape or surface."
+      }
+    },
+    {
+      "id": "step-3",
+      "type": "multiple-choice",
+      "prompt": "Doping silicon (4 valence electrons) with phosphorus (5 valence electrons) creates which type of material?",
+      "choices": [
+        { "id": "a", "text": "N-type (extra electrons)" },
+        { "id": "b", "text": "P-type (extra holes)" }
+      ],
+      "correctChoiceId": "a",
+      "feedback": {
+        "correct": "Right — phosphorus's extra electron becomes a free (negative) charge carrier, giving N-type material.",
+        "incorrectByChoice": {
+          "b": "P-type comes from dopants with fewer valence electrons than silicon, like boron — phosphorus has one more, not fewer."
+        },
+        "incorrectDefault": "Think about whether phosphorus has more or fewer valence electrons than silicon."
+      }
+    },
+    {
+      "id": "step-4",
+      "type": "numeric",
+      "prompt": "Silicon has 4 valence electrons. Boron, a common P-type dopant, has 3. How many fewer valence electrons does boron have compared to silicon?",
+      "answer": 1,
+      "feedback": {
+        "correct": "Right — that one missing electron is what creates a 'hole', a mobile positive charge carrier.",
+        "incorrect": "Subtract boron's valence electron count (3) from silicon's (4)."
+      }
+    }
+  ]
+}

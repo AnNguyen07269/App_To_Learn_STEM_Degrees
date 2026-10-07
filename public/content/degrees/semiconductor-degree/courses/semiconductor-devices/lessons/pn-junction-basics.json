@@ -1,0 +1,42 @@
+{
+  "id": "pn-junction-basics",
+  "title": "The PN Junction",
+  "steps": [
+    {
+      "id": "step-1",
+      "type": "text",
+      "body": "When you join P-type and N-type silicon, electrons near the junction diffuse into the P-side, leaving behind a region depleted of charge carriers."
+    },
+    {
+      "id": "step-2",
+      "type": "multiple-choice",
+      "prompt": "What is this charge-carrier-depleted region called?",
+      "choices": [
+        { "id": "a", "text": "The depletion region" },
+        { "id": "b", "text": "The conduction band" },
+        { "id": "c", "text": "The Fermi gap" }
+      ],
+      "correctChoiceId": "a",
+      "feedback": {
+        "correct": "Right — this is the depletion region, and it's what gives the diode its one-way behavior.",
+        "incorrectByChoice": {
+          "b": "The conduction band is an energy-level concept, not a physical region of the junction.",
+          "c": "There's no such thing as a 'Fermi gap' — you might be thinking of the Fermi level."
+        },
+        "incorrectDefault": "Not quite — think about what happens to charge carriers right at the junction."
+      }
+    },
+    {
+      "id": "step-3",
+      "type": "numeric",
+      "prompt": "At equilibrium, a silicon PN junction has a built-in potential of about 0.7 V. If the depletion width is 0.5 µm, what is the approximate electric field in V/µm? (built-in potential ÷ width)",
+      "answer": 1.4,
+      "tolerance": 0.1,
+      "unit": "V/µm",
+      "feedback": {
+        "correct": "Exactly — 0.7 V / 0.5 µm = 1.4 V/µm.",
+        "incorrect": "Try dividing the built-in potential by the depletion width."
+      }
+    }
+  ]
+}
