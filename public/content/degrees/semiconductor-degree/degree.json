@@ -2,5 +2,5 @@
   "id": "semiconductor-degree",
   "title": "Electrical Engineering Essentials",
   "description": "A sequence of courses on how electronic devices actually work.",
-  "courses": ["semiconductor-devices"]
+  "courses": ["semiconductor-devices", "digital-design"]
 }

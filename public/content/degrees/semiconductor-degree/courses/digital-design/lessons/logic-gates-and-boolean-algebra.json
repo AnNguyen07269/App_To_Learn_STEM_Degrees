@@ -1,0 +1,58 @@
+{
+  "id": "logic-gates-and-boolean-algebra",
+  "title": "Logic Gates and Boolean Algebra",
+  "steps": [
+    {
+      "id": "step-1",
+      "type": "text",
+      "body": "Digital circuits represent information as binary signals: 0 (low) and 1 (high). Logic gates are the basic building blocks that combine these signals. The three fundamental gates are AND, OR, and NOT — every other gate (NAND, NOR, XOR, ...) can be built from combinations of these three."
+    },
+    {
+      "id": "step-2",
+      "type": "multiple-choice",
+      "prompt": "An AND gate outputs 1 only when:",
+      "choices": [
+        { "id": "a", "text": "At least one input is 1" },
+        { "id": "b", "text": "All inputs are 1" },
+        { "id": "c", "text": "All inputs are 0" }
+      ],
+      "correctChoiceId": "b",
+      "feedback": {
+        "correct": "Right — AND requires every input to be 1 for the output to be 1.",
+        "incorrectByChoice": {
+          "a": "That describes an OR gate, not AND — OR only needs one input to be 1.",
+          "c": "If all inputs are 0, an AND gate outputs 0, not 1."
+        },
+        "incorrectDefault": "Think about what makes AND different from OR."
+      }
+    },
+    {
+      "id": "step-3",
+      "type": "multiple-choice",
+      "prompt": "A NOT gate (inverter) takes a single input. If that input is 0, what is the output?",
+      "choices": [
+        { "id": "a", "text": "0" },
+        { "id": "b", "text": "1" },
+        { "id": "c", "text": "Depends on other inputs" }
+      ],
+      "correctChoiceId": "b",
+      "feedback": {
+        "correct": "Right — NOT simply flips the signal, so an input of 0 becomes an output of 1.",
+        "incorrectByChoice": {
+          "c": "A NOT gate only has one input, so there are no \"other inputs\" to depend on."
+        },
+        "incorrectDefault": "NOT inverts its single input — 0 becomes 1, and 1 becomes 0."
+      }
+    },
+    {
+      "id": "step-4",
+      "type": "numeric",
+      "prompt": "De Morgan's law says NOT(A AND B) = (NOT A) OR (NOT B). If A = 1 and B = 0, what is the value of (NOT A) OR (NOT B)? Enter 0 or 1.",
+      "answer": 1,
+      "feedback": {
+        "correct": "Right — NOT A = 0 and NOT B = 1, so 0 OR 1 = 1, matching NOT(1 AND 0) = NOT(0) = 1.",
+        "incorrect": "First find NOT A and NOT B individually, then OR those two results together."
+      }
+    }
+  ]
+}

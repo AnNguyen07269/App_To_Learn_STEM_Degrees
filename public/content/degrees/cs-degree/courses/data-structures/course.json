@@ -1,0 +1,6 @@
+{
+  "id": "data-structures",
+  "title": "Data Structures",
+  "description": "How programs organize and access data efficiently.",
+  "lessons": ["arrays-and-linked-lists"]
+}

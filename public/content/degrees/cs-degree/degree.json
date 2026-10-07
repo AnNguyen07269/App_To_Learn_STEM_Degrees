@@ -1,0 +1,6 @@
+{
+  "id": "cs-degree",
+  "title": "Computer Science Foundations",
+  "description": "The mathematical and structural foundations underlying software.",
+  "courses": ["discrete-structures", "data-structures"]
+}

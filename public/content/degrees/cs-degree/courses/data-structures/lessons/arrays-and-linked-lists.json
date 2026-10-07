@@ -1,0 +1,59 @@
+{
+  "id": "arrays-and-linked-lists",
+  "title": "Arrays and Linked Lists",
+  "steps": [
+    {
+      "id": "step-1",
+      "type": "text",
+      "body": "Arrays store elements in contiguous memory, so accessing any element by index takes constant time. But inserting or removing an element in the middle requires shifting every element after it. Linked lists trade that away: elements (nodes) live anywhere in memory and just point to the next node, which changes the cost tradeoffs."
+    },
+    {
+      "id": "step-2",
+      "type": "multiple-choice",
+      "prompt": "What is the time complexity of accessing the element at index i in an array?",
+      "choices": [
+        { "id": "a", "text": "O(1)" },
+        { "id": "b", "text": "O(n)" },
+        { "id": "c", "text": "O(log n)" }
+      ],
+      "correctChoiceId": "a",
+      "feedback": {
+        "correct": "Right — the array's memory address plus i times the element size gives the location directly, no searching needed.",
+        "incorrectByChoice": {
+          "b": "O(n) is the cost of a linear search, not direct indexing — arrays don't need to scan.",
+          "c": "O(log n) applies to binary search on a sorted structure, not direct index access."
+        },
+        "incorrectDefault": "Array indexing computes the memory address directly from the index — no scanning involved."
+      }
+    },
+    {
+      "id": "step-3",
+      "type": "multiple-choice",
+      "prompt": "Why might you prefer a linked list over an array when inserting into the middle frequently?",
+      "choices": [
+        { "id": "a", "text": "Linked lists have faster random access" },
+        { "id": "b", "text": "Linked lists avoid shifting elements — insertion is O(1) once you have a reference to the spot" },
+        { "id": "c", "text": "Linked lists always use less total memory" }
+      ],
+      "correctChoiceId": "b",
+      "feedback": {
+        "correct": "Right — inserting a node just means relinking a couple of pointers, no shifting required.",
+        "incorrectByChoice": {
+          "a": "The opposite is true — linked lists have slower random access since you must walk from the head.",
+          "c": "Linked lists actually use more memory per element, since each node also stores a pointer."
+        },
+        "incorrectDefault": "Think about what an array has to do to make room for a new middle element versus what a linked list has to do."
+      }
+    },
+    {
+      "id": "step-4",
+      "type": "numeric",
+      "prompt": "An array has 10 elements at indices 0-9. After inserting one new element at index 0, how many of the original elements must shift to a new position?",
+      "answer": 10,
+      "feedback": {
+        "correct": "Right — every one of the original 10 elements moves up by one index to make room.",
+        "incorrect": "Every existing element has to move over by one slot to make room at index 0 — count all of them."
+      }
+    }
+  ]
+}

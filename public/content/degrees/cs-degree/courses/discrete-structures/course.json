@@ -1,0 +1,6 @@
+{
+  "id": "discrete-structures",
+  "title": "Discrete Structures",
+  "description": "Logic, sets, and the mathematical foundations of computer science.",
+  "lessons": ["propositional-logic-basics"]
+}

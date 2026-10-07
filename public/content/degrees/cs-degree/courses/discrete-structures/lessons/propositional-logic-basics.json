@@ -1,0 +1,59 @@
+{
+  "id": "propositional-logic-basics",
+  "title": "Propositional Logic Basics",
+  "steps": [
+    {
+      "id": "step-1",
+      "type": "text",
+      "body": "Discrete math studies structures built from distinct, countable values rather than continuous ones. One of its core building blocks is propositional logic: statements that are either true or false, combined with logical connectives like AND (∧), OR (∨), and NOT (¬)."
+    },
+    {
+      "id": "step-2",
+      "type": "multiple-choice",
+      "prompt": "Which of these is a proposition — a statement with a definite truth value?",
+      "choices": [
+        { "id": "a", "text": "Close the door." },
+        { "id": "b", "text": "Is it raining?" },
+        { "id": "c", "text": "Paris is the capital of France." }
+      ],
+      "correctChoiceId": "c",
+      "feedback": {
+        "correct": "Right — it's a declarative statement that is definitely true or false (in this case, true).",
+        "incorrectByChoice": {
+          "a": "That's a command, not a statement that can be true or false.",
+          "b": "That's a question, not a declarative statement — questions aren't propositions."
+        },
+        "incorrectDefault": "A proposition must be a statement you could label true or false."
+      }
+    },
+    {
+      "id": "step-3",
+      "type": "multiple-choice",
+      "prompt": "For the compound statement P ∧ Q (P AND Q) to be true, what must hold?",
+      "choices": [
+        { "id": "a", "text": "At least one of P, Q is true" },
+        { "id": "b", "text": "Both P and Q must be true" },
+        { "id": "c", "text": "Exactly one of P, Q is true" }
+      ],
+      "correctChoiceId": "b",
+      "feedback": {
+        "correct": "Right — AND (∧) requires every operand to be true.",
+        "incorrectByChoice": {
+          "a": "That's the condition for OR (∨), not AND.",
+          "c": "That describes exclusive-or (XOR), not AND."
+        },
+        "incorrectDefault": "AND is the strictest connective — nothing less than all-true will satisfy it."
+      }
+    },
+    {
+      "id": "step-4",
+      "type": "numeric",
+      "prompt": "A truth table enumerates every combination of input values. For a compound statement with 3 propositional variables, how many rows does the truth table need? (2^n)",
+      "answer": 8,
+      "feedback": {
+        "correct": "Right — 2³ = 8 possible combinations of true/false across 3 variables.",
+        "incorrect": "Each variable doubles the number of combinations — compute 2 raised to the power of 3."
+      }
+    }
+  ]
+}
