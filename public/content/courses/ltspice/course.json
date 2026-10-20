@@ -1,0 +1,8 @@
+{
+  "id": "ltspice",
+  "title": "LTspice",
+  "description": "Simulating circuits before you ever touch a breadboard.",
+  "level": "Beginner",
+  "icon": "📈",
+  "lessons": []
+}

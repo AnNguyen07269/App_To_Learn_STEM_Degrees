@@ -1,5 +1,5 @@
 // Shape of the JSON content files under /public/content.
-// This is the one place that defines what a valid lesson looks like —
+// This is the one place that defines what a valid lesson/course looks like —
 // the loader validates against it, and every component trusts it.
 
 export interface Choice {
@@ -52,23 +52,15 @@ export interface Lesson {
   steps: Step[];
 }
 
+export type CourseLevel = 'Beginner' | 'Intermediate' | 'Advanced';
+
 export interface Course {
   id: string;
   title: string;
   description?: string;
-  /** Lesson ids, resolved to lessons/<id>.json under this course's folder. */
+  level: CourseLevel;
+  /** Emoji shown on the course card. */
+  icon: string;
+  /** Lesson ids, resolved to lessons/<id>.json under this course's folder. Empty = "coming soon". */
   lessons: string[];
-}
-
-export interface Degree {
-  id: string;
-  title: string;
-  description?: string;
-  /** Course ids, resolved to courses/<id>/course.json under this degree's folder. */
-  courses: string[];
-}
-
-/** Root manifest at /content/index.json — the only hardcoded entry point. */
-export interface ContentIndex {
-  degrees: string[];
 }

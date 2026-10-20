@@ -2,5 +2,7 @@
   "id": "data-structures",
   "title": "Data Structures",
   "description": "How programs organize and access data efficiently.",
+  "level": "Beginner",
+  "icon": "🗂️",
   "lessons": ["arrays-and-linked-lists"]
 }

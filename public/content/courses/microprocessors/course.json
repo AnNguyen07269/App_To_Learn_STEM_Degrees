@@ -1,0 +1,8 @@
+{
+  "id": "microprocessors",
+  "title": "Microprocessors",
+  "description": "How a CPU fetches, decodes, and executes instructions.",
+  "level": "Intermediate",
+  "icon": "🖥️",
+  "lessons": []
+}

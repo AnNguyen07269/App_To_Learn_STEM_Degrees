@@ -1,0 +1,8 @@
+{
+  "id": "linear-algebra",
+  "title": "Linear Algebra",
+  "description": "Vectors, matrices, and the structure behind most of modern engineering math.",
+  "level": "Intermediate",
+  "icon": "🧩",
+  "lessons": []
+}

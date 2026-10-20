@@ -2,5 +2,7 @@
   "id": "semiconductor-devices",
   "title": "Semiconductor Devices",
   "description": "From band theory to transistors.",
+  "level": "Beginner",
+  "icon": "⚡",
   "lessons": ["intro-to-semiconductors", "pn-junction-basics"]
 }

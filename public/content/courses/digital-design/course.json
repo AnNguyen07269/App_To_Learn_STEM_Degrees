@@ -2,5 +2,7 @@
   "id": "digital-design",
   "title": "Digital Design",
   "description": "Logic gates, boolean algebra, and the building blocks of digital circuits.",
+  "level": "Beginner",
+  "icon": "🔢",
   "lessons": ["logic-gates-and-boolean-algebra"]
 }

@@ -1,0 +1,8 @@
+{
+  "id": "calculus-ii",
+  "title": "Calculus II",
+  "description": "Integration techniques, series, and the tools built on top of Calculus I.",
+  "level": "Intermediate",
+  "icon": "📊",
+  "lessons": []
+}

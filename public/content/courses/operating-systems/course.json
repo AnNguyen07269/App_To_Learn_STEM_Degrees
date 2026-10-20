@@ -1,0 +1,8 @@
+{
+  "id": "operating-systems",
+  "title": "Operating Systems",
+  "description": "Processes, scheduling, and how the OS manages a machine's resources.",
+  "level": "Intermediate",
+  "icon": "⚙️",
+  "lessons": []
+}

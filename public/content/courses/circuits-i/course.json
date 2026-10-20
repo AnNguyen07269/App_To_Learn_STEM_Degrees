@@ -1,0 +1,8 @@
+{
+  "id": "circuits-i",
+  "title": "Circuits I",
+  "description": "Kirchhoff's laws, resistive networks, and the basics of analyzing circuits by hand.",
+  "level": "Beginner",
+  "icon": "🔌",
+  "lessons": []
+}

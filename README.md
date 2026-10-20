@@ -1,32 +1,79 @@
-# React + TypeScript + Vite
+# Anject
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+An interactive, Brilliant-style learning app. Courses are played step by step —
+short explanations mixed with multiple-choice and numeric questions — and all
+course content lives in plain JSON files, separate from the app's code.
 
-Currently, two official plugins are available:
+School gives you knowledge; tools are how knowledge touches the world. This
+app makes learning both, especially the tools, fast and hands-on, so people
+can go from understanding to building sooner.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Running it
 
-## React Compiler
+```
+npm install
+npm run dev
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Then open the printed `localhost` URL. `npm run build` type-checks and
+produces a production build in `dist/`.
 
-## Expanding the Oxlint configuration
+## Content structure
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+Everything under `public/content/` is data, not code. Adding or editing a
+course means adding or editing JSON files — no TypeScript changes needed.
+
+```
+public/content/
+  courses/
+    index.json              ordered list of every course id in the catalog
+    <courseId>/
+      course.json            { id, title, description, level, icon, lessons }
+      lessons/
+        <lessonId>.json       { id, title, steps: [...] }
+  degrees/
+    <degreeId>.json           { id, title, description, courses: [courseIds] }
+                               (not used by the UI yet — reserved for a future
+                               "paths" feature)
+```
+
+A course with an empty `lessons` array shows up on the home screen as
+"Coming soon."
+
+### Adding a course
+
+1. Create `public/content/courses/<new-id>/course.json` with `id`, `title`,
+   `description`, `level`, `icon`, and a `lessons` array (an empty array is
+   fine if you don't have lessons written yet).
+2. Add `<new-id>` to `public/content/courses/index.json`.
+3. For each lesson id in that course, add
+   `public/content/courses/<new-id>/lessons/<lessonId>.json`.
+
+### Lesson / step format
+
+A lesson is `{ id, title, steps }`. Each step has an `id` and a `type` of
+`text`, `multiple-choice`, or `numeric`:
 
 ```json
 {
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
+  "id": "step-2",
+  "type": "multiple-choice",
+  "prompt": "What is this charge-carrier-depleted region called?",
+  "choices": [
+    { "id": "a", "text": "The depletion region" },
+    { "id": "b", "text": "The conduction band" }
+  ],
+  "correctChoiceId": "a",
+  "feedback": {
+    "correct": "Right — this is the depletion region.",
+    "incorrectByChoice": {
+      "b": "The conduction band is an energy-level concept, not a region."
+    },
+    "incorrectDefault": "Think about what happens right at the junction."
   }
 }
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+A `numeric` step additionally has `answer`, an optional `tolerance` (default
+`0`), and an optional display `unit`, with `feedback.correct` /
+`feedback.incorrect` messages.

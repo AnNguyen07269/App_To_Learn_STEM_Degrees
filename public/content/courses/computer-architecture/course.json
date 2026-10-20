@@ -1,0 +1,8 @@
+{
+  "id": "computer-architecture",
+  "title": "Computer Architecture",
+  "description": "Pipelining, memory hierarchy, and how hardware shapes software performance.",
+  "level": "Intermediate",
+  "icon": "🏗️",
+  "lessons": []
+}

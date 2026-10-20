@@ -1,4 +1,4 @@
-import type { ContentIndex, Course, Degree, Lesson, Step } from '../types/content';
+import type { Course, Lesson, Step } from '../types/content';
 
 const CONTENT_ROOT = '/content';
 
@@ -54,24 +54,17 @@ function validateLesson(lesson: Lesson, sourcePath: string): void {
   });
 }
 
-export async function loadIndex(): Promise<ContentIndex> {
-  return fetchJson<ContentIndex>('/index.json');
+/** The ordered list of every course id in the catalog. */
+export async function loadCourseIds(): Promise<string[]> {
+  return fetchJson<string[]>('/courses/index.json');
 }
 
-export async function loadDegree(degreeId: string): Promise<Degree> {
-  return fetchJson<Degree>(`/degrees/${degreeId}/degree.json`);
+export async function loadCourse(courseId: string): Promise<Course> {
+  return fetchJson<Course>(`/courses/${courseId}/course.json`);
 }
 
-export async function loadCourse(degreeId: string, courseId: string): Promise<Course> {
-  return fetchJson<Course>(`/degrees/${degreeId}/courses/${courseId}/course.json`);
-}
-
-export async function loadLesson(
-  degreeId: string,
-  courseId: string,
-  lessonId: string,
-): Promise<Lesson> {
-  const path = `/degrees/${degreeId}/courses/${courseId}/lessons/${lessonId}.json`;
+export async function loadLesson(courseId: string, lessonId: string): Promise<Lesson> {
+  const path = `/courses/${courseId}/lessons/${lessonId}.json`;
   const lesson = await fetchJson<Lesson>(path);
   validateLesson(lesson, path);
   return lesson;

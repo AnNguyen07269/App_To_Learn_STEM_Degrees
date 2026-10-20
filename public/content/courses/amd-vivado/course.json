@@ -1,0 +1,8 @@
+{
+  "id": "amd-vivado",
+  "title": "AMD Vivado",
+  "description": "Synthesizing and programming digital designs onto an FPGA.",
+  "level": "Intermediate",
+  "icon": "🔧",
+  "lessons": []
+}

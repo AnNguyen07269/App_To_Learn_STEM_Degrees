@@ -2,5 +2,7 @@
   "id": "discrete-structures",
   "title": "Discrete Structures",
   "description": "Logic, sets, and the mathematical foundations of computer science.",
+  "level": "Beginner",
+  "icon": "🔗",
   "lessons": ["propositional-logic-basics"]
 }

@@ -1,16 +1,10 @@
 import { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import type { Lesson, Step } from '../types/content';
 import { loadLesson } from '../content/loader';
 import TextStep from './steps/TextStep';
 import MultipleChoiceStep from './steps/MultipleChoiceStep';
 import NumericStep from './steps/NumericStep';
-
-interface Props {
-  degreeId: string;
-  courseId: string;
-  lessonId: string;
-  onExit: () => void;
-}
 
 function renderStep(step: Step, onComplete: () => void) {
   switch (step.type) {
@@ -23,25 +17,35 @@ function renderStep(step: Step, onComplete: () => void) {
   }
 }
 
-export default function LessonPlayer({ degreeId, courseId, lessonId, onExit }: Props) {
+export default function LessonPlayer() {
+  const { courseId, lessonId } = useParams<{ courseId: string; lessonId: string }>();
+  if (!courseId || !lessonId) return null;
+  // Keying on the lesson remounts this on navigation between lessons, so
+  // each lesson starts with fresh state instead of resetting it by hand.
+  return <LessonPlayerForLesson key={`${courseId}/${lessonId}`} courseId={courseId} lessonId={lessonId} />;
+}
+
+function LessonPlayerForLesson({ courseId, lessonId }: { courseId: string; lessonId: string }) {
+  const navigate = useNavigate();
   const [lesson, setLesson] = useState<Lesson | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [stepIndex, setStepIndex] = useState(0);
 
   useEffect(() => {
-    setLesson(null);
-    setError(null);
-    setStepIndex(0);
-    loadLesson(degreeId, courseId, lessonId)
+    loadLesson(courseId, lessonId)
       .then(setLesson)
       .catch((err) => setError(String((err as Error).message ?? err)));
-  }, [degreeId, courseId, lessonId]);
+  }, [courseId, lessonId]);
+
+  function exitToCourse() {
+    navigate(`/courses/${courseId}`);
+  }
 
   if (error) {
     return (
       <div className="app-error">
         {error}
-        <button type="button" onClick={onExit}>
+        <button type="button" onClick={exitToCourse}>
           Back
         </button>
       </div>
@@ -54,7 +58,7 @@ export default function LessonPlayer({ degreeId, courseId, lessonId, onExit }: P
 
   function handleStepComplete() {
     if (isLastStep) {
-      onExit();
+      exitToCourse();
     } else {
       setStepIndex((index) => index + 1);
     }
@@ -63,7 +67,7 @@ export default function LessonPlayer({ degreeId, courseId, lessonId, onExit }: P
   return (
     <div className="lesson-player">
       <div className="lesson-progress">
-        <button type="button" className="lesson-back" onClick={onExit}>
+        <button type="button" className="lesson-back" onClick={exitToCourse}>
           ← Exit
         </button>
         <span>
